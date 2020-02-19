@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'LandingController@show');
+Route::get('/search', 'SearchController@show');

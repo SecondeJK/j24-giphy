@@ -26,8 +26,14 @@ class ApiTest extends TestCase
         // make a call to the API
         $response = $api->get('/something');
 
-        // test we got a payload back, mock this out
-        $this->assertIsArray($response);
+        // adjust test - make sure this throws exception - method is protected
+    }
+
+    public function testMostRecent()
+    {
+        $api = new GiphyApi();
+        $api->getMostRecentGifs();
+        // just want to know it completed
     }
 
     public function testLimit()
@@ -40,5 +46,14 @@ class ApiTest extends TestCase
         $response2 = $api->getMostRecentGifs($limit2);
         $this->assertCount($limit1, $response1);
         $this->assertCount($limit2, $response2);
+
+        // @TODO do a test here to check int typehint
+    }
+
+    public function testSearch()
+    {
+        $api = new GiphyApi();
+        $response = $api->getSearch('Bob');
+        $this->assertStatus(200);
     }
 }
