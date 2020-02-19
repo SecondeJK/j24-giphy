@@ -32,17 +32,17 @@ class GiphyApi
         $response = $this->http->get($path . '&' . self::GIPHY_API_KEY_URL_CODE . '=' . $this->apiKey);
 
         // @TODO real nice exception handling, but is not in task requirements
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
      * Fetches most recent gifs from trending endpoint
      *
+     * @param int $limit
      * @return array
      */
     public function getMostRecentGifs($limit = 20) : array
     {
-        $paramsString = "";
-        return $this->get();
+        return $this->get('gifs/trending?limit=' . $limit);
     }
 }

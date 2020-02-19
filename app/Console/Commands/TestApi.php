@@ -39,6 +39,6 @@ class TestApi extends Command
     public function handle()
     {
         $api = new GiphyApi();
-        $api->get('gifs/search?q=ryan+gosling');
+        dump($api->getMostRecentGifs(2));
     }
 }
