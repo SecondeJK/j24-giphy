@@ -2,8 +2,12 @@
 
 namespace App\Services;
 
+use GuzzleHttp\Client;
+
 class GiphyApi
 {
+    const GIPHY_API_KEY_URL_CODE = 'api_key';
+
     protected $basePath;
     protected $apiKey;
 
@@ -14,8 +18,8 @@ class GiphyApi
      */
     public function __construct()
     {
-        $this->basePath = env('GIPHY_API_BASE_PATH');
         $this->apiKey = env('GIPHY_API_KEY');
+        $this->http = new Client(['base_uri' => env('GIPHY_API_BASE_PATH')]);
     }
 
     /**
@@ -24,8 +28,11 @@ class GiphyApi
      */
     public function get(string $path) : array
     {
-        // @TODO WIP
-       return [];
+        // @TODO there is obviously a far more graceful way of encoding this parameter into each call
+        $response = $this->http->get($path . '&' . self::GIPHY_API_KEY_URL_CODE . '=' . $this->apiKey);
+
+        // @TODO real nice exception handling, but is not in task requirements
+        return json_decode($response->getBody()->getContents());
     }
 
     /**
