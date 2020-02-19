@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use http\Client\Response;
-
 class GiphyApi
 {
     protected $basePath;
@@ -22,11 +20,22 @@ class GiphyApi
 
     /**
      * @param string $path
-     * @return Response
+     * @return array converted array from json response
      */
-    public function get(string $path) : Response
+    public function get(string $path) : array
     {
         // @TODO WIP
-       return new Response();
+       return [];
+    }
+
+    /**
+     * Fetches most recent gifs from trending endpoint
+     *
+     * @return array
+     */
+    public function getMostRecentGifs($limit = 20) : array
+    {
+        $paramsString = "";
+        return $this->get();
     }
 }
