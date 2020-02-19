@@ -13,11 +13,17 @@ class ApiTest extends TestCase
     {
         // create the API
         $api = new GiphyApi();
-        $this->assertInstanceOf(GiphyApi::class);
+        $this->assertInstanceOf(GiphyApi::class, $api);
+    }
+
+    public function testApiGet()
+    {
+        $api = new GiphyApi();
+
         // make a call to the API
         $response = $api->get('/something');
 
-        // test we got a payload back
+        // test we got a payload back, mock this out
         $this->assertJson($response);
     }
 }
