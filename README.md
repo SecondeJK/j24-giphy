@@ -1,4 +1,4 @@
-## Jump24 Giphy API Task
+## Giphy API
 
 This small Laravel app interacts with the Giphy API
 
