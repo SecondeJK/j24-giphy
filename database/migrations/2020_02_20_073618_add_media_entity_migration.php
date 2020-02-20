@@ -28,8 +28,6 @@ class AddMediaEntityMigration extends Migration
             $table->dateTime('create_datetime');
             $table->dateTime('import_datetime');
             $table->dateTime('trending_datetime');
-            // not going to bother with adding a foreighn key index constraint but would do another migration to do one
-            $table->integer('image_id');
             $table->string('title');
         });
     }
