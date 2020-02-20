@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\RandomImageIndexer;
 use Illuminate\Console\Command;
 
 class RandomImageConsumer extends Command
@@ -31,12 +32,14 @@ class RandomImageConsumer extends Command
     }
 
     /**
-     * Execute the console command.
+     * This is going to be couple of levels deep to keep some single responsibility
+     * principals in action
      *
      * @return mixed
      */
     public function handle()
     {
-        //
+        $randomImageIndexer = new RandomImageIndexer();
+        $randomImageIndexer->runIndex();
     }
 }

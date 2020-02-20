@@ -14,8 +14,9 @@ class AddMediaEntityMigration extends Migration
     public function up()
     {
         Schema::create('media', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
+            $table->integer('media_id')->autoIncrement();
             $table->string('type');
+            $table->string('id');
             $table->string('slug');
             $table->string('url');
             $table->string('bitly_url');

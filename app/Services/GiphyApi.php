@@ -59,6 +59,6 @@ class GiphyApi
 
     public function getRandom() : array
     {
-        return $this->get('gifs/random');
+        return $this->get('gifs/random?');
     }
 }
