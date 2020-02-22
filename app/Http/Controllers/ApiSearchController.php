@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
 use App\Media;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ApiSearchController extends Controller
 {
@@ -12,7 +13,7 @@ class ApiSearchController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return ResponseFactory|Response
      */
     public function search(Request $request)
     {

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        </br>
+        <br>
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="card card-sm">
@@ -18,6 +18,9 @@
                 </div>
             </div>
         </div>
+        <div class=flex v-for="gif in images">
+            <img :src=gif></img>
+        </div>
     </div>
 </template>
 
@@ -34,8 +37,18 @@
         },
         methods: {
             doSearch() {
-                axios.get('/api/search?term=' + this.searchTerm).then(res => (this.images = res));
+                axios.get('/api/search?term=' + this.searchTerm)
+                    .then(res => {
+                        this.images = res.data;
+                        console.log(res.data);
+                    });
             }
         }
     }
 </script>
+
+<style>
+    .flex {
+        display: inline-flex;
+    }
+</style>
