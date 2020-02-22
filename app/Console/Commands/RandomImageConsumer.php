@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\RandomImageIndexer;
 use Illuminate\Console\Command;
+use Log;
 
 class RandomImageConsumer extends Command
 {
@@ -39,6 +40,7 @@ class RandomImageConsumer extends Command
      */
     public function handle()
     {
+        Log::info('[' . __CLASS__ . '] Fired indexer command');
         $randomImageIndexer = new RandomImageIndexer();
         $randomImageIndexer->runIndex();
     }

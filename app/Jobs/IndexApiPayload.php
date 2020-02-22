@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Image;
 use App\Media;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -35,12 +36,25 @@ class IndexApiPayload implements ShouldQueue
      */
     public function handle() : void
     {
-        foreach ($this->batch['data'] as $gif) {
-            $localGif = Media::firstOrCreate(['', $gif['id']]);
-            $localGif->fill($gif);
-            $localGif->save();
-        }
+        foreach ($this->batch as $gif) {
+            // only process gifs, not metadata, bit hacky.
+            if (isset($gif['type'])) {
+                $localGif = Media::firstOrNew(['id' => $gif['id']]);
+                $localGif->fill($gif);
+                $localGif->save();
 
-        dd($this->batch['data']);
+                if ($localGif->image()) {
+                    $localImage = $localGif->image();
+                    $localImage->image_data = json_encode($gif['images']);
+                    $localImage->save();
+                } else {
+                    $localImage = new Image();
+                    $localImage->image_data = json_encode($gif['images']);
+                    // WTF Laravel why do not of your associate models work and I'm doing this manually
+                    $localImage->media_id = $localGif->media_id;
+                    $localImage->save();
+                }
+            }
+        }
     }
 }

@@ -25,10 +25,11 @@ class AddMediaEntityMigration extends Migration
             $table->string('source');
             $table->string('content_url')->nullable();
             $table->string('source_post_url');
-            $table->dateTime('update_datetime');
-            $table->dateTime('create_datetime');
+            // NB API docs wrong, missing column but leaving on in case v2 changes this.
+            $table->dateTime('update_datetime')->nullable();
+            $table->dateTime('create_datetime')->nullable();
             $table->dateTime('import_datetime');
-            $table->dateTime('trending_datetime');
+            $table->dateTime('trending_datetime')->nullable();
             $table->string('title');
         });
     }

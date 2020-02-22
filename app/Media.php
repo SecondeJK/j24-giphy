@@ -29,4 +29,9 @@ class Media extends Model
         'trending_datetime',
         'title'
     ];
+
+    public function image()
+    {
+        $this->hasOne(Image::class, 'media_id', 'media_id');
+    }
 }

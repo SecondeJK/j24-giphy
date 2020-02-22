@@ -10,7 +10,6 @@ use function Psy\debug;
 
 class RandomImageIndexer
 {
-    private $page = 0;
     private $apiCalls = 0;
 
     public function runIndex() : void
