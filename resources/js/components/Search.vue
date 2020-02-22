@@ -34,8 +34,7 @@
         },
         methods: {
             doSearch() {
-                console.log(this.searchTerm);
-                axios.get('/api/search?term=' + this.searchTerm)
+                axios.get('/api/search?term=' + this.searchTerm).then(res => (this.images = res));
             }
         }
     }

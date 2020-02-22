@@ -1943,8 +1943,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     doSearch: function doSearch() {
-      console.log(this.searchTerm);
-      axios.get('/api/search?term=' + this.searchTerm);
+      var _this = this;
+
+      axios.get('/api/search?term=' + this.searchTerm).then(function (res) {
+        return _this.images = res;
+      });
     }
   }
 });
