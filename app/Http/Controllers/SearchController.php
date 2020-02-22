@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Media;
 use App\Services\GiphyApi;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

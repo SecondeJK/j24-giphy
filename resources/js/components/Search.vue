@@ -25,7 +25,8 @@
     export default {
         data() {
             return {
-                searchTerm: ""
+                searchTerm: "",
+                images: []
             }
         },
         mounted() {
@@ -34,6 +35,7 @@
         methods: {
             doSearch() {
                 console.log(this.searchTerm);
+                axios.get('/api/search?term=' + this.searchTerm)
             }
         }
     }

@@ -32,6 +32,6 @@ class Media extends Model
 
     public function image()
     {
-        $this->hasOne(Image::class, 'media_id', 'media_id');
+        return $this->hasOne(Image::class, 'media_id', 'media_id');
     }
 }
