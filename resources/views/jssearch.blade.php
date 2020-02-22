@@ -7,7 +7,6 @@
     </head>
 
     <body>
-        <p>Task Two: dump out searched API Data.</p>
-        {{ print_r($apiData) }}
+
     </body>
 </html>

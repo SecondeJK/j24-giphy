@@ -13,3 +13,4 @@
 
 Route::get('/', 'LandingController@show');
 Route::get('/search', 'SearchController@show');
+Route::get('/js-search', 'JsSearchController@show');
