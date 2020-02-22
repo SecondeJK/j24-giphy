@@ -12,7 +12,7 @@
                             <input class="form-control form-control-lg form-control-borderless" type="search" v-model=searchTerm placeholder="Search for Gifs">
                         </div>
                         <div class="col-auto">
-                            <button class="btn btn-lg btn-success" @click="doSearch">Search</button>
+                            <button class="btn btn-lg btn-primary" @click="doSearch">Search</button>
                         </div>
                     </div>
                 </div>
@@ -31,9 +31,6 @@
                 searchTerm: "",
                 images: []
             }
-        },
-        mounted() {
-            console.log('Component mounted.')
         },
         methods: {
             doSearch() {

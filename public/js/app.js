@@ -1941,9 +1941,6 @@ __webpack_require__.r(__webpack_exports__);
       images: []
     };
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
   methods: {
     doSearch: function doSearch() {
       var _this = this;
@@ -38017,7 +38014,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-lg btn-success",
+                      staticClass: "btn btn-lg btn-primary",
                       on: { click: _vm.doSearch }
                     },
                     [_vm._v("Search")]
