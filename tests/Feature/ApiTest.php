@@ -56,4 +56,12 @@ class ApiTest extends TestCase
         $response = $api->getSearch('Bob');
         $this->assertStatus(200);
     }
+
+    public function testRandom()
+    {
+        $api = new GiphyApi();
+        $response = $api->getRandom();
+        $this->assertIsArray($response);
+        $this->assertStatus(200);
+    }
 }

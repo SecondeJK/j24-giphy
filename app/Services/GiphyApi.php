@@ -56,4 +56,9 @@ class GiphyApi
     {
         return $this->get('gifs/search?q=' . urlencode($term));
     }
+
+    public function getRandom() : array
+    {
+        return $this->get('gifs/random?');
+    }
 }

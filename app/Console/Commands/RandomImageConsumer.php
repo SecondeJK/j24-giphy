@@ -2,24 +2,25 @@
 
 namespace App\Console\Commands;
 
-use App\Services\GiphyApi;
+use App\Services\RandomImageIndexer;
 use Illuminate\Console\Command;
+use Log;
 
-class TestApi extends Command
+class RandomImageConsumer extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test:api';
+    protected $signature = 'index:media';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'interactive testing for api, to be depricated after branch is merged';
+    protected $description = 'Attempts to index 500 media objects';
 
     /**
      * Create a new command instance.
@@ -32,13 +33,15 @@ class TestApi extends Command
     }
 
     /**
-     * Execute the console command.
+     * This is going to be couple of levels deep to keep some single responsibility
+     * principals in action
      *
      * @return mixed
      */
     public function handle()
     {
-        $api = new GiphyApi();
-        dump($api->getMostRecentGifs(2));
+        Log::info('[' . __CLASS__ . '] Fired indexer command');
+        $randomImageIndexer = new RandomImageIndexer();
+        $randomImageIndexer->runIndex();
     }
 }
