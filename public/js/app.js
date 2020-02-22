@@ -6498,7 +6498,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.flex {\n    display: inline-flex;\n}\n", ""]);
+exports.push([module.i, "\n.flex {\n    display: inline-flex;\n    padding: 5px;\n}\n", ""]);
 
 // exports
 

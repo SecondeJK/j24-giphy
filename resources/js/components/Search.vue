@@ -47,5 +47,6 @@
 <style>
     .flex {
         display: inline-flex;
+        padding: 5px;
     }
 </style>
