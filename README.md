@@ -20,4 +20,6 @@ I set it as an option url parameter that's passed into the API wrapper. Again, i
 ### Task 3 Sort-Of Completed (persist random endpoint)
 The spec asks for "multiple tables", so I had two tables logically defined with a 1-2-1 relationship, which I would have had to do anyway as the image payload is a fairly complex structured JSON. It looks from later on that the spec actually wants the model to rotate between dynamic tables which is a bizarre fudge that I don't really see why you'd want to do that. But we'll get to that
 
+EDIT: CTO confirmed that it's not rotating models. Huzzah!
+
 
