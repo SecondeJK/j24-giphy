@@ -24,3 +24,19 @@ EDIT: CTO confirmed that it's not rotating models. Huzzah!
 
 ### Task 4 Completed (stored procedure)
 You can find the raw SQL for this in resources/sql/task4.sql. Happy record traversing!
+
+### Task 5 Completed (JS search for stored entities)
+The route/js-search takes you into a Vue app.
+There's a single search component that has a bound
+data property, hitting search then returns a json
+payload (that should be cached but isn't right now,
+that's demonstrated elsewhere) and renders it. The images 
+are quite sizable: a front end cache like Varnish would be 
+nice here.
+
+Ideally I would create a reusable component here that takes
+a prop of "gifs" to render them out.
+
+I didn't actually do the last task set because it
+effectively does the same thing: render out local
+entities with JS.
