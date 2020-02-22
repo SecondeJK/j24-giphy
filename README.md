@@ -22,4 +22,5 @@ The spec asks for "multiple tables", so I had two tables logically defined with 
 
 EDIT: CTO confirmed that it's not rotating models. Huzzah!
 
-
+### Task 4 Completed (stored procedure)
+You can find the raw SQL for this in resources/sql/task3.sql. Happy record traversing!
